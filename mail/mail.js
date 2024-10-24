@@ -8,7 +8,12 @@ document.addEventListener('DOMContentLoaded', function () {
             method: 'POST',
             body: formData
         })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json(); // Only parse if response is OK
+        })
         .then(data => {
             document.getElementById('success').innerText = 'Message sent successfully!';
             form.reset();
