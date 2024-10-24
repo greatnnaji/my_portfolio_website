@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     form.addEventListener('submit', function (event) {
         event.preventDefault();
         const formData = new FormData(form);
-        fetch('/mail', {
+        fetch('/https://www.greatnnaji.com/mail', {
             method: 'POST',
             body: formData
         })
