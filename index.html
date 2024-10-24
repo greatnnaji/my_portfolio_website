@@ -307,7 +307,7 @@
                             <li data-filter="*" class="filter-active">All</li>
                             <li data-filter=".filter-1">Web Design</li>
                             <li data-filter=".filter-2">App Development</li>
-                            <!-- <li data-filter=".filter-3">Game Dev</li> -->
+                            <li data-filter=".filter-3">Front-End</li>
                         </ul>
                     </div>
                 </div>
@@ -334,28 +334,28 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-3 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-3 wow fadeInUp" data-wow-delay="0.4s">
                         <div class="portfolio-wrap">
                             <div class="portfolio-img">
-                                <img src="img/portfolio-3.jpg" alt="Image">
+                                <img src="img/ant_painting.jpg" alt="Image">
                             </div>
                             <div class="portfolio-text">
-                                <h3>JavaScript quiz game</h3>
-                                <a class="btn" href="img/portfolio-3.jpg" data-lightbox="portfolio">+</a>
+                                <h3>pixel painting</h3>
+                                <!-- <a class="btn" href="img/portfolio-3.jpg" data-lightbox="portfolio">+</a> -->
                             </div>
                         </div>
-                    </div> -->
-                    <!-- <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-1 wow fadeInUp" data-wow-delay="0.6s">
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-3 wow fadeInUp" data-wow-delay="0.6s">
                         <div class="portfolio-wrap">
                             <div class="portfolio-img">
-                                <img src="img/portfolio-4.jpg" alt="Image">
+                                <img src="img/calendar.jpg" alt="Image">
                             </div>
                             <div class="portfolio-text">
                                 <h3>JavaScript drawing</h3>
-                                <a class="btn" href="img/portfolio-4.jpg" data-lightbox="portfolio">+</a>
+                                <!-- <a class="btn" href="img/portfolio-4.jpg" data-lightbox="portfolio">+</a> -->
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-2 wow fadeInUp" data-wow-delay="0.8s">
                         <div class="portfolio-wrap">
                             <div class="portfolio-img">
@@ -367,17 +367,17 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-3 wow fadeInUp" data-wow-delay="1s">
+                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-3 wow fadeInUp" data-wow-delay="1s">
                         <div class="portfolio-wrap">
                             <div class="portfolio-img">
-                                <img src="img/portfolio-6.jpg" alt="Image">
+                                <img src="img/disperse.jpg" alt="Image">
                             </div>
                             <div class="portfolio-text">
-                                <h3>Company Website</h3>
-                                <a class="btn" href="img/portfolio-6.jpg" data-lightbox="portfolio">+</a>
+                                <h3>Disperse</h3>
+                                <!-- <a class="btn" href="img/portfolio-6.jpg" data-lightbox="portfolio">+</a> -->
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -652,21 +652,21 @@
                         <div class="col-md-8">
                             <div class="contact-form">
                                 <div id="success"></div>
-                                <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                                <form name="sentMessage" id="contactForm" action="/mail" method="POST" novalidate="novalidate">
                                     <div class="control-group">
-                                        <input type="text" class="form-control" id="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
+                                        <input type="text" class="form-control" name="name" id="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
                                         <p class="help-block"></p>
                                     </div>
                                     <div class="control-group">
-                                        <input type="email" class="form-control" id="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
+                                        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
                                         <p class="help-block"></p>
                                     </div>
                                     <div class="control-group">
-                                        <input type="text" class="form-control" id="subject" placeholder="Subject" required="required" data-validation-required-message="Please enter a subject" />
+                                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required="required" data-validation-required-message="Please enter a subject" />
                                         <p class="help-block"></p>
                                     </div>
                                     <div class="control-group">
-                                        <textarea class="form-control" id="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message"></textarea>
+                                        <textarea class="form-control" name="message" id="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message"></textarea>
                                         <p class="help-block"></p>
                                     </div>
                                     <div>
@@ -783,8 +783,8 @@
         <script src="lib/lightbox/js/lightbox.min.js"></script>
         
         <!-- Contact Javascript File -->
-        <script src="mail/jqBootstrapValidation.min.js"></script>
-        <script src="mail/contact.js"></script>
+        <!-- <script src="mail/jqBootstrapValidation.min.js"></script> -->
+        <script src="mail/mail.js"></script>
 
         <!-- Template Javascript -->
         <script src="js/main.js"></script>

@@ -36,35 +36,80 @@ var express = require('express');
 //var path = require('path');
 //var favicon = require('serve-favicon');
 var logger = require('morgan');
+const nodemailer = require('nodemailer');
+const multer = require('multer');
 
-var  app = express(); //create express middleware dispatcher
+
+var app = express(); //create express middleware dispatcher
 
 const PORT = process.env.PORT || 3000
 app.locals.pretty = true; //to generate pretty view-source code in browser
 
+const upload = multer();
+
 //read routes modules
 //var routes = require('/index.html');
+const transporter = nodemailer.createTransport({
+    service: 'gmail', // You can use other email services like 'Yahoo', 'Outlook', etc.
+    auth: {
+    user: 'nnajiuchegreat2004@gmail.com', // Your email address
+    pass: 'mxrggoussgrbzjxb'    // Your email password or app-specific password
+    }
+});
+
 
 //register middleware with dispatcher
 //ORDER MATTERS HERE
 //middleware
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 //app.use(favicon(path.join(__dirname, '/index.html')));
-app.use(function(req, res, next){
-    console.log('-------------------')
-    console.log('req.path: ', req.path)
-    console.log('favicon: ', req.favicon)
-    next()
-})
+// app.use(function(req, res, next){
+//     console.log('-------------------')
+//     console.log('req.path: ', req.path)
+//     console.log('favicon: ', req.favicon)
+//     next()
+// })
 
 app.use(logger('dev'));
-app.use(express.static(__dirname))
+app.use(express.static(__dirname));
+// Middleware to parse URL-encoded form data
+app.use(express.urlencoded({ extended: true }));
 
-//routes
-app.use((req, res)=> {
-    console.log(__dirname)
-    res.status(404).send('404: OOPS YOU BROKE THE INTERNET')
-})
+
+// Handle form submission at '/mail'
+app.post('/mail', upload.none(), (req, res) => {
+    console.log('request body: ', req.body);
+  const { name, email, subject, message } = req.body; // Extract form data
+
+  console.log(`Name: ${name}`);
+  console.log(`Email: ${email}`);
+  console.log(`Subject: ${subject}`);
+  console.log(`Message: ${message}`);
+
+  const mailOptions = {
+        from: email,
+        to: 'nnajiuchegreat2004@gmail.com',
+        subject: subject,
+        text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
+        };
+    
+        transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            console.error('Error sending email:', error);
+            // Only send response once
+        if (!res.headersSent) {
+            res.status(500).json({ message: 'Error sending email.' });
+        }
+        } else {
+            console.log('Email sent:', info.response);
+            // Only send response once
+        if (!res.headersSent) {
+            res.json({ message: 'Message received and email sent.' });
+        }
+        }
+    });
+    });
+    
 
 //start server
 app.listen(PORT, err => {
