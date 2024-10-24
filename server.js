@@ -77,7 +77,7 @@ app.use(express.urlencoded({ extended: true }));
 
 
 // Handle form submission at '/mail'
-app.post('/https://www.greatnnaji.com/mail', upload.none(), (req, res) => {
+app.post('/mail', upload.none(), (req, res) => {
   const { name, email, subject, message } = req.body; // Extract form data
 
   console.log(`Name: ${name}`);
