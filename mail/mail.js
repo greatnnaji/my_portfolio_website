@@ -4,16 +4,11 @@ document.addEventListener('DOMContentLoaded', function () {
     form.addEventListener('submit', function (event) {
         event.preventDefault();
         const formData = new FormData(form);
-        fetch('/mail', {
+        fetch('https://www.greatnnaji.com/mail', {
             method: 'POST',
             body: formData
         })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.json(); // Only parse if response is OK
-        })
+        .then(response => response.json())
         .then(data => {
             document.getElementById('success').innerText = 'Message sent successfully!';
             form.reset();
