@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+
+# Node
+node_modules/
+dist/
+build/
+
+# macOS
+.DS_Store
+
+# Conda environments (if saved in project)
+*.conda
+*.egg-info/
+
+# VS Code
+.vscode/
