@@ -19,3 +19,7 @@ build/
 
 # VS Code
 .vscode/
+
+# Vercel
+.vercel/
+
