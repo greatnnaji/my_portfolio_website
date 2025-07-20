@@ -109,6 +109,7 @@ app.post('/mail', upload.none(), (req, res) => {
     });
     });
     
+// run for live changes: npx nodemon server.js
 
 //start server
 app.listen(PORT, err => {
