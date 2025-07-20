@@ -1,17 +1,6 @@
 My Portfolio Website
 This is a personal developer portfolio website built using HTML, CSS, and JavaScript libraries. It showcases my projects, skills, and contact information in a clean, modern design.
 
-Project Structure
-my_portfolio_website/
-│
-├── index.html           # Main landing page
-├── css/
-│   └── style.css        # Custom styles
-├── img/
-│   └── favicon.ico      # Website favicon and other images
-├── lib/                 # External libraries (animate.css, owlcarousel, lightbox, etc.)
-├── js/                  # JavaScript files
-└── .gitignore           # Files/folders to ignore in Git
 Features
 Responsive navigation bar with smooth scrolling to page sections
 
