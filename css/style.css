@@ -68,15 +68,20 @@ a:focus {
 
 /* outline */
 .btn-outline{
-  color: #ffffff !important;
+  color: var(--accent) !important;
   background: transparent;
-  border: 1px solid rgba(255,255,255,0.35);
+  border: 1.5px solid var(--accent);
   border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.2s ease;
 }
+
 .btn-outline:hover{
-  border-color: rgba(255,255,255,0.08);
-  background: rgba(255,255,255,0.6);
+  background: var(--accent-soft);
+  color: var(--accent) !important;
+  border-color: var(--accent);
 }
+
 
 #loader {
     position: fixed;
@@ -152,109 +157,79 @@ a:focus {
 /*********** Nav Bar CSS **********/
 /**********************************/
 .navbar {
-    position: relative;
-    transition: .5s;
-    z-index: 999;
+  position: absolute;
+  width: 100%;
+  padding: 30px 60px;
+  background: transparent !important;
+  transition: all 0.3s ease;
+  z-index: 999;
 }
 
-.navbar.nav-sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
-}
-
+/* Brand */
 .navbar .navbar-brand {
-    margin: 0;
-    font-size: 45px;
-    line-height: 0px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    transition: .5s;
-    
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #ffffff;
 }
 
-.navbar .navbar-brand img {
-    max-width: 100%;
-    max-height: 40px;
+/* Nav links — HERO (dark background) */
+.navbar-light .navbar-nav .nav-link {
+  color: rgba(255,255,255,0.85);
+  font-size: 15px;
+  font-weight: 500;
+  padding: 8px 14px;
+  transition: color 0.2s ease;
 }
 
-.navbar .dropdown-menu {
-    margin-top: 0;
-    border: 0;
-    border-radius: 0;
-    background: #f8f9fa;
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link.active {
+  color: var(--accent); /* blue hover */
 }
 
-@media (min-width: 992px) {
-    .navbar {
-        position: absolute;
-        width: 100%;
-        padding: 30px 60px;
-        background: transparent !important;
-        border-bottom: 1px dashed rgba(256, 256, 256, .2);
-        z-index: 9;
-    }
-    
-    .navbar.nav-sticky {
-        padding: 10px 60px;
-        background: #ffffff !important;
-    }
-    
-    .navbar .navbar-brand {
-        color: #ffffff;
-    }
-    
-    .navbar.nav-sticky .navbar-brand {
-        color: var(--accent);
-    }
-
-    .navbar-light .navbar-nav .nav-link,
-    .navbar-light .navbar-nav .nav-link:focus {
-        padding: 10px 10px 8px 10px;
-        color: #ffffff;
-        font-size: 15px;
-        font-weight: 500;
-    }
-    
-    .navbar-light.nav-sticky .navbar-nav .nav-link,
-    .navbar-light.nav-sticky .navbar-nav .nav-link:focus {
-        color: var(--muted);
-    }
-
-    .navbar-light .navbar-nav .nav-link:hover,
-    .navbar-light .navbar-nav .nav-link.active {
-        color: var(--text);
-    }
-    
-    .navbar-light.nav-sticky .navbar-nav .nav-link:hover,
-    .navbar-light.nav-sticky .navbar-nav .nav-link.active {
-        color: var(--accent);
-    }
+/* Sticky navbar (white background) */
+.navbar.nav-sticky {
+  position: fixed;
+  top: 0;
+  padding: 12px 60px;
+  background: #ffffff !important;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 }
 
-@media (max-width: 991.98px) {   
-    .navbar {
-        padding: 15px;
-        background: #ffffff !important;
-    }
-    
-    .navbar .navbar-brand {
-        color: var(--accent);
-    }
-    
-    .navbar .navbar-nav {
-        margin-top: 15px;
-    }
-    
-    .navbar a.nav-link {
-        padding: 5px;
-    }
-    
-    .navbar .dropdown-menu {
-        box-shadow: none;
-    }
+.navbar.nav-sticky .navbar-brand {
+  color: var(--text);
 }
+
+.navbar.nav-sticky .navbar-nav .nav-link {
+  color: var(--text);
+}
+
+.navbar.nav-sticky .navbar-nav .nav-link:hover,
+.navbar.nav-sticky .navbar-nav .nav-link.active {
+  color: var(--accent);
+}
+
+/* Mobile */
+@media (max-width: 991.98px) {
+  .navbar {
+    padding: 15px;
+    background: #ffffff !important;
+  }
+
+  .navbar .navbar-brand {
+    color: var(--text);
+  }
+
+  .navbar-light .navbar-nav .nav-link {
+    color: var(--text);
+  }
+
+  .navbar-light .navbar-nav .nav-link:hover,
+  .navbar-light .navbar-nav .nav-link.active {
+    color: var(--accent);
+  }
+}
+
 
 
 /*******************************/
