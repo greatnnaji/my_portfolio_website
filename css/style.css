@@ -1,33 +1,39 @@
 /*******************************/
 /********* General CSS *********/
 /*******************************/
+:root{
+  --bg: #ffffff;
+  --surface: #f8fafc;
+  --surface-2: #eef2f7;
+
+  --text: #0f172a;     /* headings */
+  --muted: #475569;    /* body text */
+
+  --border: #e2e8f0;
+
+  --accent: #2563eb;   /* professional blue */
+  --accent-2: #0b1220; /* ink/navy */
+  --accent-soft: rgba(37, 99, 235, 0.12);
+
+  --radius: 14px;
+}
+
 body {
-    color: #797979;
-    background: #ffffff;
-    font-family: 'Montserrat', sans-serif;
+  color: var(--muted);
+  background: var(--bg);
+  font-family: 'Montserrat', sans-serif;
 }
 
-h1,
-h2, 
-h3, 
-h4,
-h5, 
-h6 {
-    color: #414141;
-}
-
-a {
-    color: #313131;
-    transition: .3s;
+h1,h2,h3,h4,h5,h6 {
+  color: var(--text);
 }
 
 a:hover,
 a:active,
 a:focus {
-    color: #EF233C;
-    outline: none;
-    text-decoration: none;
+  color: var(--accent);
 }
+
 
 .btn:focus,
 .form-control:focus {
@@ -38,26 +44,38 @@ a:focus {
     max-width: 1366px;
 }
 
-.btn {
-    padding: 12px 25px;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    color: #ffffff;
-    background: #EF233C;
-    border: 2px solid transparent;
-    border-radius: 0;
-    box-shadow: inset 0 0 0 50px #EF233C;
-    transition: ease-out 0.3s;
-    -webkit-transition: ease-out 0.3s;
-    -moz-transition: ease-out 0.3s;
+.btn{
+  padding: 12px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  transition: 0.2s ease;
+  box-shadow: none;
 }
 
-.btn:hover {
-    color: #EF233C;
-    background: transparent;
-    box-shadow: inset 0 0 0 0 #EF233C;
-    border-color: #EF233C;
+/* primary */
+.btn-primary{
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 6px 20px rgba(37,99,235,0.35);
+}
+.btn-primary:hover{
+  transform: translateY(-1px);
+  filter: brightness(0.95);
+}
+
+/* outline */
+.btn-outline{
+  color: #ffffff !important;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: 12px;
+}
+.btn-outline:hover{
+  border-color: rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.6);
 }
 
 #loader {
@@ -91,7 +109,7 @@ a:focus {
     width: 45px;
     height: 45px;
     border: 5px solid #dddddd;
-    border-top: 5px solid #EF233C;
+    border-top: 5px solid var(--accent);
     border-radius: 50%;
     -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
@@ -126,7 +144,7 @@ a:focus {
 }
 
 .back-to-top:hover i {
-    color: #414141;
+    color: var(--muted);
 }
 
 
@@ -188,7 +206,7 @@ a:focus {
     }
     
     .navbar.nav-sticky .navbar-brand {
-        color: #EF233C;
+        color: var(--accent);
     }
 
     .navbar-light .navbar-nav .nav-link,
@@ -201,17 +219,17 @@ a:focus {
     
     .navbar-light.nav-sticky .navbar-nav .nav-link,
     .navbar-light.nav-sticky .navbar-nav .nav-link:focus {
-        color: #414141;
+        color: var(--muted);
     }
 
     .navbar-light .navbar-nav .nav-link:hover,
     .navbar-light .navbar-nav .nav-link.active {
-        color: #111111;
+        color: var(--text);
     }
     
     .navbar-light.nav-sticky .navbar-nav .nav-link:hover,
     .navbar-light.nav-sticky .navbar-nav .nav-link.active {
-        color: #EF233C;
+        color: var(--accent);
     }
 }
 
@@ -222,7 +240,7 @@ a:focus {
     }
     
     .navbar .navbar-brand {
-        color: #EF233C;
+        color: var(--accent);
     }
     
     .navbar .navbar-nav {
@@ -242,16 +260,21 @@ a:focus {
 /*******************************/
 /********** Hero CSS ***********/
 /*******************************/
-.hero {
-    position: relative;
-    width: 100%;
-    margin-bottom: 45px;
-    padding: 120px 0 0 0;
-    overflow: hidden;
-    background: linear-gradient(rgba(239, 35, 60, .95), rgba(239, 35, 60, .95));
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+.hero{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+
+  background: radial-gradient(1200px 600px at 20% 10%, rgba(37,99,235,0.35), transparent 60%),
+              linear-gradient(180deg, #0b1220, #0f172a);
+}
+
+.hero .hero-kicker{
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.85);
+  margin-top: 10px;
+  max-width: 520px;
 }
 
 .hero .container-fluid {
@@ -279,56 +302,22 @@ a:focus {
 }
 
 .hero .hero-text p {
-    color: #ffffff;
-    font-size: 25px;
-    font-weight: 600;
-    margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 12px;
 }
 
 .hero .hero-text h1 {
-    color: #ffffff;
-    font-size: 60px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    margin-bottom: 15px;
+  font-size: 64px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #ffffff;
+  margin-bottom: 10px;
 }
 
-.hero .hero-text h2 {
-    display: inline-block;
-    margin: 0;
-    height: 35px;
-    color: #ffffff;
-    font-size: 35px;
-    font-weight: 600;
-}
-
-.hero .hero-text .typed-text {
-    display: none;
-}
-
-.hero .hero-text .typed-cursor {
-    font-size: 35px;
-    font-weight: 300;
-    color: #ffffff;
-}
-
-.hero .hero-btn .btn {
-    margin-top: 35px;
-    color: #EF233C;
-    background: #ffffff;
-    box-shadow: inset 0 0 0 50px #ffffff;
-}
-
-.hero .hero-btn .btn:hover {
-    color: #ffffff;
-    background: transparent;
-    box-shadow: inset 0 0 0 0 #ffffff;
-    border-color: #ffffff;
-}
-
-.hero .hero-btn .btn:first-child {
-    margin-right: 10px;
-}
+.hero .hero-btn { margin-top: 35px; }
+.hero .hero-btn .btn { margin-right: 14px; }
 
 @media (max-width: 991.98px) {
     .hero {
@@ -345,11 +334,6 @@ a:focus {
     
     .hero .hero-text h1 {
         font-size: 45px;
-    }
-    
-    .hero .hero-text h2 {
-        font-size: 25px;
-        height: 25px;
     }
     
     .hero .hero-btn .btn {
@@ -379,15 +363,19 @@ a:focus {
         font-size: 35px;
     }
     
-    .hero .hero-text h2 {
-        font-size: 22px;
-        height: 22px;
-    }
-    
     .hero .hero-btn .btn {
         padding: 10px 15px;
         letter-spacing: 1px;
     }
+
+    .hero .hero-image {
+    display: none;
+    }
+
+    .hero .hero-content {
+        align-items: center;
+    }
+
 }
 
 @media (max-width: 575.98px) {
@@ -397,11 +385,6 @@ a:focus {
     
     .hero .hero-text h1 {
         font-size: 30px;
-    }
-    
-    .hero .hero-text h2 {
-        font-size: 18px;
-        height: 18px;
     }
     
     .hero .hero-btn .btn {
@@ -439,7 +422,7 @@ a:focus {
     top: 11px;
     right: 0;
     left: -30px;
-    background: #EF233C;
+    background: var(--accent);
     z-index: -1;
 }
 
@@ -450,7 +433,7 @@ a:focus {
     height: 3px;
     top: 11px;
     left: 3px;
-    background: #EF233C;
+    background: var(--accent);
     z-index: 1;
 }
 
@@ -471,11 +454,18 @@ a:focus {
 /*******************************/
 /********** About CSS **********/
 /*******************************/
-.about {
-    position: relative;
-    width: 100%;
-    margin: -45px 0 45px 0;
+.about, .portfolio, .footer{
+  border-top: 1px solid var(--border);
 }
+
+.portfolio-wrap,
+.about-content,
+.footer-info{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
 
 .about .col-lg-6 {
     padding: 0;
@@ -503,38 +493,6 @@ a:focus {
 
 .about .about-text p {
     font-size: 16px;
-}
-
-.about .skills {
-    margin-bottom: 30px;
-}
-
-.about .skill-name {
-    margin-top: 15px;
-}
-
-.about .skill-name p {
-    display: inline-block;
-    margin-bottom: 5px;
-    font-size: 16px;
-    font-weight: 400;
-}
-
-.about .skill-name p:last-child {
-    float: right;
-}
-
-.about .progress {
-    height: 10px;
-    border-radius: 10px;
-    background: #dddddd;
-}
-
-.about .progress .progress-bar {
-    width: 0px;
-    background: #EF233C;
-    border-radius: 10px;
-    transition: 2s;
 }
 
 .about .about-text a.btn {
@@ -565,7 +523,7 @@ a:focus {
     content: '';
     position: absolute;
     width: 2px;
-    background: #EF233C;
+    background: var(--accent);
     top: 0;
     bottom: 0;
     left: 50%;
@@ -597,7 +555,7 @@ a:focus {
     top: 48px;
     right: -8px;
     background: #ffffff;
-    border: 2px solid #EF233C;
+    border: 2px solid var(--accent);
     border-radius: 16px;
     z-index: 1;
 }
@@ -629,7 +587,7 @@ a:focus {
     top: 44px;
     font-size: 16px;
     font-weight: 600;
-    color: #EF233C;
+    color: var(--accent);
     text-transform: uppercase;
     letter-spacing: 1px;
     z-index: 1;
@@ -743,7 +701,7 @@ a:focus {
 }
 
 .service .service-item:hover {
-    box-shadow: inset 800px 0 0 0 #EF233C;
+    box-shadow: inset 800px 0 0 0 var(--accent);
 }
 
 .service .service-icon {
@@ -753,14 +711,14 @@ a:focus {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #EF233C;
+    border: 1px solid var(--accent);
     background: #ffffff;
 }
 
 .service .service-icon i {
     position: relative;
     font-size: 60px;
-    color: #EF233C;
+    color: var(--accent);
     transition: .3s;
 }
 
@@ -828,10 +786,10 @@ a:focus {
     font-size: 14px;
     font-weight: 600;
     color: #ffffff;
-    background: #EF233C;
+    background: var(--accent);
     border: 2px solid transparent;
     border-radius: 0;
-    box-shadow: inset 0 0 0 50px #EF233C;
+    box-shadow: inset 0 0 0 50px var(--accent);
     transition: ease-out 0.3s;
     -webkit-transition: ease-out 0.3s;
     -moz-transition: ease-out 0.3s;
@@ -839,10 +797,10 @@ a:focus {
 
 .portfolio #portfolio-filter li:hover,
 .portfolio #portfolio-filter li.filter-active {
-    color: #EF233C;
+    color: var(--accent);
     background: transparent;
-    box-shadow: inset 0 0 0 0 #EF233C;
-    border-color: #EF233C;
+    box-shadow: inset 0 0 0 0 var(--accent);
+    border-color: var(--accent);
 }
 
 .portfolio .portfolio-item {
@@ -904,400 +862,11 @@ a:focus {
 }
 
 .portfolio .portfolio-item:hover a.btn {
-    color: #EF233C;
+    color: var(--accent);
     background: transparent;
-    box-shadow: inset 0 0 0 0 #EF233C;
-    border-color: #EF233C;
+    box-shadow: inset 0 0 0 0 var(--accent);
+    border-color: var(--accent);
 }
-
-
-/*******************************/
-/********* Banner CSS **********/
-/*******************************/
-.banner {
-    position: relative;
-    width: 100%;
-    margin: 45px 0;
-    padding: 90px 0;
-    background: #EF233C;
-}
-
-.banner .container {
-    max-width: 750px;
-    text-align: center;
-}
-
-.banner .section-header {
-    margin-bottom: 20px;
-}
-
-.banner .section-header p {
-    color: #414141;
-    background: transparent;
-}
-
-.banner .section-header p::after {
-    display: none;
-}
-
-.banner .section-header h2 {
-    color: #ffffff;
-}
-
-.banner .section-header h2 span {
-    color: #414141;
-    font-size: 50px;
-}
-
-.banner .banner-text p {
-    font-size: 18px;
-    color: #ffffff;
-}
-
-.banner .banner-text .btn {
-    margin-top: 15px;
-    color: #EF233C;
-    background: #ffffff;
-    box-shadow: inset 0 0 0 50px #ffffff;
-}
-
-.banner .banner-text .btn:hover {
-    color: #ffffff;
-    background: transparent;
-    box-shadow: inset 0 0 0 0 #ffffff;
-    border-color: #ffffff;
-}
-
-
-/*******************************/
-/********* Pricing CSS *********/
-/*******************************/
-.price {
-    position: relative;
-    width: 100%;
-    padding: 45px 0 15px 0;
-}
-
-.price .row {
-    padding: 0 15px;
-}
-
-.price .col-md-4 {
-    padding: 0;
-}
-
-.price .price-item {
-    position: relative;
-    margin-bottom: 30px;
-    background: #ffffff;
-}
-
-.price .featured-item {
-    box-shadow: 0 0 30px rgba(0, 0, 0, .2);
-    z-index: 1;
-}
-
-.price .price-header,
-.price .price-body,
-.price .price-footer {
-    position: relative;
-    text-align: center;
-}
-
-.price .price-header {
-    padding: 45px 0 30px 0;
-    color: #414141;
-}
-
-.price .price-item.featured-item .price-header {
-    color: #EF233C;
-}
-
-.price .price-title h2 {
-    font-size: 25px;
-    font-weight: 400;
-    text-transform: uppercase;
-}
-
-.price .price-prices h2 {
-    font-size: 45px;
-    font-weight: 700;
-    margin-left: 10px;
-}
-
-.price .price-prices h2 small {
-    position: absolute;
-    font-size: 18px;
-    font-weight: 400;
-    margin-top: 9px;
-    margin-left: -12px;
-}
-
-.price .price-prices h2 span {
-    margin-left: 1px;
-    font-size: 18px;
-    font-weight: 400;
-}
-
-.price .price-item.featured-item h2 {
-    color: #EF233C;
-}
-
-.price .price-body {
-    padding: 0 0 20px 0;
-}
-
-.price .price-description ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.price .price-description ul li {
-    padding: 0 0 20px 0;
-}
-
-.price .price-item .price-action {
-    padding-bottom: 45px;
-}
-
-.price .price-item .price-action .btn {
-    color: #ffffff;
-    background: #414141;
-    box-shadow: inset 0 0 0 50px #414141;
-}
-
-.price .price-item .price-action .btn:hover {
-    color: #414141;
-    background: transparent;
-    box-shadow: inset 0 0 0 0 #414141;
-    border-color: #414141;
-}
-
-.price .price-item.featured-item .price-action .btn {
-    color: #ffffff;
-    background: #EF233C;
-    box-shadow: inset 0 0 0 50px #EF233C;
-}
-
-.price .price-item.featured-item .price-action .btn:hover {
-    color: #EF233C;
-    background: transparent;
-    box-shadow: inset 0 0 0 0 #EF233C;
-    border-color: #EF233C;
-}
-
-
-/*******************************/
-/*********** Team CSS **********/
-/*******************************/
-.team {
-    position: relative;
-    width: 100%;
-    padding: 45px 0 15px 0;
-}
-
-.team .team-item {
-    position: relative;
-    background: #ffffff;
-    margin-bottom: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    box-shadow: inset 0 0 0 0 transparent;
-    transition: ease-out 0.5s;
-}
-
-.team .team-img {
-    position: relative;
-    width: 50%;
-    overflow: hidden;
-}
-
-.team .team-img img {
-    position: relative;
-    width: 100%;
-    transition: .5s;
-}
-
-.team .team-text {
-    position: relative;
-    width: 50%;
-    padding: 0 30px;
-}
-
-.team .team-text h2 {
-    color: #EF233C;
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 5px;
-    transition: 1s;
-}
-
-.team .team-text h4 {
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 15px;
-    transition: 1s;
-}
-
-.team .team-text p {
-    margin-bottom: 20px;
-    transition: 1s;
-}
-
-.team .team-social {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-}
-
-.team .team-social a.btn {
-    width: 35px;
-    height: 35px;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    font-weight: normal;
-    margin-right: 5px;
-}
-
-.team .team-item:hover {
-    box-shadow: inset 800px 0 0 0 #EF233C;
-}
-
-.team .team-item:hover .team-img img {
-    transform: scale(1.2);
-}
-
-.team .team-item:hover .team-text h2,
-.team .team-item:hover .team-text h4,
-.team .team-item:hover .team-text p {
-    color: #ffffff;
-}
-
-.team .team-item:hover .team-social a.btn {
-    background: #ffffff;
-}
-
-.team .team-item:hover .team-social a.btn:hover {
-    border-color: #ffffff;
-}
-
-@media(max-width: 575.98px) {
-    .team .team-text {
-        padding: 0 15px;
-    }
-    
-    .team .team-text h2 {
-        font-size: 16px;
-        margin-bottom: 0;
-    }
-
-    .team .team-text h4 {
-        margin-bottom: 5px;
-    }
-
-    .team .team-text p {
-        font-size: 14px;
-        line-height: 18px;
-        margin-bottom: 10px;
-    }
-}
-
-
-/*******************************/
-/******* Testimonial CSS *******/
-/*******************************/
-.testimonial {
-    position: relative;
-    margin: 45px 0;
-    padding: 90px 0;
-    background: #EF233C;
-}
-
-.testimonial .container {
-    max-width: 900px;
-}
-
-.testimonial .testimonial-icon {
-    margin-bottom: 45px;
-    text-align: center;
-}
-
-.testimonial .testimonial-icon i {
-    font-size: 60px;
-    color: rgba(256, 256, 256, .5);
-}
-
-.testimonial .testimonial-item {
-    position: relative;
-    margin: 0 15px;
-    text-align: center;
-}
-
-.testimonial .testimonial-img {
-    position: relative;
-    margin-bottom: 15px;
-    z-index: 1;
-}
-
-.testimonial .testimonial-item img {
-    margin: 0 auto;
-    width: 120px;
-    padding: 10px;
-    border: 5px dotted #ffffff;
-    border-radius: 100px;
-}
-
-.testimonial .testimonial-text {
-    position: relative;
-    margin-top: -70px;
-    padding: 65px 35px 30px 35px;
-    text-align: center;
-    background: #ffffff;
-    border-radius: 500px;
-}
-
-.testimonial .testimonial-item p {
-    font-size: 18px;
-    font-style: italic;
-}
-
-.testimonial .testimonial-text h3 {
-    color: #EF233C;
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
-.testimonial .testimonial-text h4 {
-    color: #666666;
-    font-size: 14px;
-    margin-bottom: 0;
-}
-
-.testimonial .owl-dots {
-    margin-top: 15px;
-    text-align: center;
-}
-
-.testimonial .owl-dot {
-    display: inline-block;
-    margin: 0 5px;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: rgba(256, 256, 256, .5);
-}
-
-.testimonial .owl-dot.active {
-    background: #ffffff;
-}
-
 
 /*******************************/
 /********* Contact CSS *********/
@@ -1306,7 +875,7 @@ a:focus {
     position: relative;
     width: 100%;
     margin: 45px 0;
-    background: #EF233C;
+    background: var(--accent);
 }
 
 .contact .container-fluid {
@@ -1317,7 +886,7 @@ a:focus {
 .contact .contact-form {
     position: relative;
     padding: 90px 0 90px 45px;
-    background: #EF233C;
+    background: var(--accent);
 }
 
 .contact .contact-form input {
@@ -1351,7 +920,7 @@ a:focus {
 
 .contact .contact-form .btn {
     margin-top: 35px;
-    color: #EF233C;
+    color: var(--accent);
     background: #ffffff;
     box-shadow: inset 0 0 0 50px #ffffff;
 }
@@ -1382,90 +951,13 @@ a:focus {
     }
 }
 
-
-/*******************************/
-/*********** Blog CSS **********/
-/*******************************/
-.blog {
-    position: relative;
-    width: 100%;
-    padding: 45px 0 15px 0;
-}
-
-.blog .blog-item {
-    position: relative;
-    margin-bottom: 30px;
-}
-
-.blog .blog-img {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-}
-
-.blog .blog-img img {
-    width: 100%;
-    transition: .5s;
-}
-
-.blog .blog-item:hover img {
-    transform: scale(1.1);
-}
-
-.blog .blog-text {
-    position: relative;
-    padding: 30px;
-    border-right: 1px solid rgba(0, 0, 0, .07);
-    border-bottom: 1px solid rgba(0, 0, 0, .07);
-    border-left: 1px solid rgba(0, 0, 0, .07);
-}
-
-.blog .blog-text h2 {
-    font-size: 25px;
-    font-weight: 600;
-}
-
-.blog .blog-text p {
-    margin-bottom: 10px;
-}
-
-.blog .blog-item a.btn {
-    margin-top: 10px;
-    padding: 8px 15px;
-}
-
-.blog .blog-item a.btn i {
-    margin-left: 5px;
-}
-
-.blog .blog-meta {
-    position: relative;
-    display: flex;
-    margin-bottom: 15px;
-}
-
-.blog .blog-meta p {
-    margin: 0 10px 0 0;
-    font-size: 13px;
-}
-
-.blog .blog-meta i {
-    color: #414141;
-    margin-right: 5px;
-}
-
-.blog .blog-meta p:last-child {
-    margin: 0;
-}
-
-
 /*******************************/
 /********* Footer CSS **********/
 /*******************************/
 .footer {
     position: relative;
     margin-top: 45px;
-    background: #EF233C;
+    background: var(--accent);
 }
 
 .footer .container-fluid {
@@ -1532,7 +1024,7 @@ a:focus {
 }
 
 .footer .footer-social a:hover i {
-    color: #414141;
+    color: var(--muted);
 }
 
 .footer .copyright {
@@ -1568,7 +1060,7 @@ a:focus {
 }
 
 .footer .copyright p a:hover {
-    color: #414141;
+    color: var(--muted);
 }
 
 @media (max-width: 575.98px) {
