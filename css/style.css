@@ -766,318 +766,165 @@ a:focus {
 /******** Portfolio CSS ********/
 /*******************************/
 .portfolio {
-    position: relative;
-    padding: 45px 0 15px 0;
+  position: relative;
+  padding: 60px 0 30px 0;
 }
 
+/* REMOVE portfolio filter UI COMPLETELY if not used */
 .portfolio #portfolio-filter {
-    padding: 0;
-    margin: -15px 0 25px 0;
-    list-style: none;
-    font-size: 0;
-    text-align: center;
-}
-
-.portfolio #portfolio-filter li {
-    cursor: pointer;
-    display: inline-block;
-    margin: 5px;
-    padding: 6px 12px;
-    font-size: 14px;
-    font-weight: 600;
-    color: #ffffff;
-    background: var(--accent);
-    border: 2px solid transparent;
-    border-radius: 0;
-    box-shadow: inset 0 0 0 50px var(--accent);
-    transition: ease-out 0.3s;
-    -webkit-transition: ease-out 0.3s;
-    -moz-transition: ease-out 0.3s;
-}
-
-.portfolio #portfolio-filter li:hover,
-.portfolio #portfolio-filter li.filter-active {
-    color: var(--accent);
-    background: transparent;
-    box-shadow: inset 0 0 0 0 var(--accent);
-    border-color: var(--accent);
+  display: none;
 }
 
 .portfolio .portfolio-item {
-    position: relative;
+  position: relative;
 }
 
 .portfolio .portfolio-wrap {
-    position: relative;
-    width: 100%;
+  position: relative;
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.portfolio .portfolio-img {
-    position: relative;
-    overflow: hidden;
+.portfolio .portfolio-wrap:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
 }
 
 .portfolio .portfolio-img img {
-    position: relative;
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover;
-    transform: scale(1.1);
-    transition: .5s;
-}
-
-.portfolio .portfolio-item:hover img {
-    margin-left: 15px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .portfolio .portfolio-text {
-    position: relative;
-    height: 60px;
-    width: calc(100% - 30px);
-    margin: -30px 15px 30px 15px;
-    display: flex;
-    align-items: center;
-    background: #ffffff;
-    box-shadow: 0 0 15px rgba(0, 0, 0, .12);
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  box-shadow: none;
 }
 
 .portfolio .portfolio-text h3 {
-    width: calc(100% - 70px);
-    font-size: 18px;
-    font-weight: 600;
-    margin: 0 0 0 15px;
-    white-space: nowrap;
-    overflow: hidden;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text);
 }
 
 .portfolio .portfolio-text a.btn {
-    width: 50px;
-    height: 50px;
-    padding: 0 0 2px 1px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 45px;
-    font-weight: 100;
-}
-
-.portfolio .portfolio-item:hover a.btn {
-    color: var(--accent);
-    background: transparent;
-    box-shadow: inset 0 0 0 0 var(--accent);
-    border-color: var(--accent);
-}
-
-/*******************************/
-/********* Contact CSS *********/
-/*******************************/
-.contact {
-    position: relative;
-    width: 100%;
-    margin: 45px 0;
-    background: var(--accent);
-}
-
-.contact .container-fluid {
-    background: url(../img/contact.jpg) left center no-repeat;
-    background-size: contain;
-}
-
-.contact .contact-form {
-    position: relative;
-    padding: 90px 0 90px 45px;
-    background: var(--accent);
-}
-
-.contact .contact-form input {
-    color: #ffffff;
-    padding: 15px 0;
-    background: none;
-    border-radius: 0;
-    border: none;
-    border-bottom: 1px solid rgba(256, 256, 256, .5);
-}
-
-.contact .contact-form textarea {
-    color: #ffffff;
-    height: 90px;
-    padding: 15px 0;
-    background: none;
-    border-radius: 0;
-    border: none;
-    border-bottom: 1px solid rgba(256, 256, 256, .5);
-}
-
-.contact .contact-form .form-control::placeholder {
-    color: #ffffff;
-    opacity: 1;
-}
-
-.contact .contact-form .form-control:-ms-input-placeholder,
-.contact .contact-form .form-control::-ms-input-placeholder {
-    color: #ffffff;
-}
-
-.contact .contact-form .btn {
-    margin-top: 35px;
-    color: var(--accent);
-    background: #ffffff;
-    box-shadow: inset 0 0 0 50px #ffffff;
-}
-
-.contact .contact-form .btn:hover {
-    color: #ffffff;
-    background: transparent;
-    box-shadow: inset 0 0 0 0 #ffffff;
-    border-color: #ffffff;
-}
-
-.contact .help-block ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    font-size: 14px;
-    font-style: italic;
-    color: #ffffff;
-}
-
-@media (max-width: 767.98px) {
-    .contact .container-fluid {
-        background: none;
-    }
-    
-    .contact .contact-form {
-        padding: 90px 0;
-    }
+  width: 42px;
+  height: 42px;
+  font-size: 20px;
+  border-radius: 50%;
+  padding: 0;
 }
 
 /*******************************/
 /********* Footer CSS **********/
 /*******************************/
 .footer {
-    position: relative;
-    margin-top: 45px;
-    background: var(--accent);
+  position: relative;
+  margin-top: 60px;
+  background: var(--accent-2); /* dark navy */
+  color: rgba(255,255,255,0.85);
 }
 
 .footer .container-fluid {
-    padding: 60px 0 0 0;
+  padding: 60px 0 0 0;
 }
 
 .footer .footer-info {
-    position: relative;
-    width: 100%;
-    text-align: center;
+  background: transparent;
+  border: 0;
+  text-align: center;
+  padding: 0 15px;
 }
 
 .footer .footer-info h2 {
-    margin-bottom: 20px;
-    font-size: 30px;
-    font-weight: 700;
-    color: #ffffff;
+  margin-bottom: 12px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff;
 }
 
 .footer .footer-info h3 {
-    margin-bottom: 25px;
-    font-size: 22px;
-    font-weight: 600;
-    color: #ffffff;
+  margin-bottom: 18px;
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.75);
 }
 
 .footer .footer-menu {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  margin-bottom: 12px;
 }
 
 .footer .footer-menu p {
-    color: #ffffff;
-    font-size: 22px;
-    font-weight: 600;
-    line-height: 20px;
-    padding: 0 15px;
-    border-right: 1px solid #ffffff;
+  margin: 0;
+  color: rgba(255,255,255,0.85);
+  font-size: 16px;
+  font-weight: 500;
+  border-right: 1px solid rgba(255,255,255,0.25);
+  padding-right: 18px;
 }
 
 .footer .footer-menu p:last-child {
-    border: none;
+  border-right: 0;
+  padding-right: 0;
 }
 
 .footer .footer-social {
-    position: relative;
-    margin-top: 15px;
-}
-
-.footer .footer-social a {
-    display: inline-block;
+  margin-top: 10px;
 }
 
 .footer .footer-social a i {
-    margin-right: 15px;
-    font-size: 20px;
-    color: #ffffff;
-    transition: .3s;
-}
-
-.footer .footer-social a:last-child i {
-    margin: 0;
+  margin: 0 10px;
+  font-size: 20px;
+  color: rgba(255,255,255,0.8);
+  transition: color 0.2s ease;
 }
 
 .footer .footer-social a:hover i {
-    color: var(--muted);
+  color: #ffffff;
 }
 
 .footer .copyright {
-    position: relative;
-    text-align: center;
-    margin-top: 30px;
-    padding-top: 25px;
-    padding-bottom: 25px;
-}
-
-.footer .copyright::before {
-    position: absolute;
-    content: "";
-    width: 50%;
-    height: 1px;
-    top: 0;
-    left: 25%;
-    background: rgba(256, 256, 256, .2);
+  text-align: center;
+  margin-top: 30px;
+  padding: 18px 0;
+  border-top: 1px solid rgba(255,255,255,0.12);
 }
 
 .footer .copyright p {
-    margin: 0;
-    color: #ffffff;
-}
-
-.footer .copyright .col-md-6:last-child p {
-    text-align: right;
+  margin: 0;
+  color: rgba(255,255,255,0.7);
+  font-size: 14px;
 }
 
 .footer .copyright p a {
-    color: #ffffff;
-    font-weight: 600;
+  color: rgba(255,255,255,0.85);
+  font-weight: 600;
 }
 
 .footer .copyright p a:hover {
-    color: var(--muted);
+  color: #ffffff;
 }
 
 @media (max-width: 575.98px) {
-    .footer .footer-info h2 {
-        margin-bottom: 20px;
-        font-size: 20px;
-        font-weight: 600;
-    }
+  .footer .footer-info h2 {
+    font-size: 20px;
+  }
 
-    .footer .footer-info h3 {
-        margin-bottom: 20px;
-        font-size: 16px;
-    }
-
-    .footer .footer-menu p {
-        font-size: 16px;
-        line-height: 16px;
-        padding: 0 5px;
-    }
+  .footer .footer-menu p {
+    font-size: 14px;
+    padding-right: 12px;
+  }
 }
