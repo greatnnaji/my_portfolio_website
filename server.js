@@ -18,7 +18,7 @@ app.use(express.static(__dirname));
 // Middleware to parse URL-encoded form data
 app.use(express.urlencoded({ extended: true }));
     
-// run for live changes: node server.js
+// run for live changes: npx nodemon server.js
 
 //start server
 app.listen(PORT, err => {
