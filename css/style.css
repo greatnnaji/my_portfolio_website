@@ -429,55 +429,151 @@ a:focus {
 /*******************************/
 /********** About CSS **********/
 /*******************************/
-.about, .portfolio, .footer{
-  border-top: 1px solid var(--border);
+/* About spacing */
+.about {
+  padding: 70px 0 40px;
 }
 
-.portfolio-wrap,
-.about-content,
-.footer-info{
+/* Make the small label match your brand */
+.about .section-header p {
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+/* Snapshot card */
+.about-snapshot {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
+  padding: 20px 20px;
 }
 
-
-.about .col-lg-6 {
-    padding: 0;
+.about-snapshot h3 {
+  margin: 0 0 12px 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
 }
 
-.about .section-header {
-    margin-bottom: 30px;
+.about-snapshot ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.about .about-img {
-    position: relative;
-    height: 100%;
+.about-snapshot li {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  font-size: 15px;
 }
 
-.about .about-img img {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.about-snapshot li:last-child {
+  border-bottom: none;
 }
 
-.about .about-content {
-    padding: 0 60px;
+/* Highlights under your paragraph */
+.about-highlights {
+  margin: 18px 0 0;
+  padding-left: 18px;
+  color: var(--muted);
 }
 
-.about .about-text p {
-    font-size: 16px;
+.about-highlights li {
+  margin: 8px 0;
 }
 
-.about .about-text a.btn {
-    margin-top: 15px;
+/* Timeline */
+.about-timeline {
+  margin-top: 28px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 22px;
 }
 
+.about-timeline h3 {
+  margin: 0 0 14px 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.timeline {
+  position: relative;
+  padding-left: 18px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  background: var(--border);
+}
+
+.timeline-item {
+  position: relative;
+  padding: 0 0 18px 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 0px;
+  top: 6px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+
+.timeline-content {
+  margin-left: 22px;
+}
+
+.timeline-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.timeline-role {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.timeline-date {
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.timeline-org {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 4px 0 8px 0;
+}
+
+.timeline-content ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.timeline-content li {
+  margin: 6px 0;
+}
+
+/* Mobile */
 @media (max-width: 991.98px) {
-    .about .about-content {
-        padding: 45px 15px 0 15px;
-    }
+  .about { padding: 60px 0 30px; }
+  .about-snapshot { margin-top: 18px; }
 }
 
 
