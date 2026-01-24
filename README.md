@@ -6,22 +6,14 @@ Responsive navigation bar with smooth scrolling to page sections
 
 Sections include Home, About, Portfolio, and Contact
 
-Uses Google Fonts and Font Awesome icons
-
-Animations powered by Animate.css
-
-Portfolio displayed using Owl Carousel and Lightbox
+Uses Google Fonts
 
 Contact form
 
 Technologies Used
 HTML5, CSS3, Bootstrap 4
 
-JavaScript libraries: Animate.css, Owl Carousel, Lightbox
-
 Google Fonts (Montserrat)
-
-Font Awesome icons
 
 How to Run Locally
 Clone the repository:
