@@ -34,6 +34,7 @@
                         <a href="#home" class="nav-item nav-link active">Home</a>
                         <a href="#about" class="nav-item nav-link">About</a>
                         <a href="#portfolio" class="nav-item nav-link">Portfolio</a>
+                        <a href="#reviews" class="nav-item nav-link">Reviews</a>
                         <a href="#contact" class="nav-item nav-link">Contact</a>
                     </div>
                 </div>
@@ -313,6 +314,54 @@
             </div>
         </div>
         <!-- Portfolio End -->
+        
+        <!-- Reviews Start -->
+        <div class="reviews" id="reviews">
+            <div class="container">
+                <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
+                    <p>What People Say</p>
+                    <h2>Reviews & Testimonials</h2>
+                </div>
+                
+                <!-- Review Form -->
+                <div class="review-form-container wow fadeInUp" data-wow-delay="0.2s">
+                    <h3>Leave a Review</h3>
+                    <form id="reviewForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="reviewName" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="reviewTitle" placeholder="Review Title (Optional)" maxlength="100">
+                        </div>
+                        <div class="form-group">
+                            <div class="star-rating">
+                                <input type="radio" id="star5" name="rating" value="5" required>
+                                <label for="star5" title="5 stars">★</label>
+                                <input type="radio" id="star4" name="rating" value="4">
+                                <label for="star4" title="4 stars">★</label>
+                                <input type="radio" id="star3" name="rating" value="3">
+                                <label for="star3" title="3 stars">★</label>
+                                <input type="radio" id="star2" name="rating" value="2">
+                                <label for="star2" title="2 stars">★</label>
+                                <input type="radio" id="star1" name="rating" value="1">
+                                <label for="star1" title="1 star">★</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" id="reviewText" rows="4" placeholder="Your Review" required maxlength="500"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit Review</button>
+                    </form>
+                    <div id="reviewMessage" class="review-message"></div>
+                </div>
+                
+                <!-- Reviews Display -->
+                <div class="reviews-container" id="reviewsContainer">
+                    <div class="loading-spinner" id="loadingSpinner">Loading reviews...</div>
+                </div>
+            </div>
+        </div>
+        <!-- Reviews End -->
         
         <!-- Footer Start -->
         <div style="height: 185px;"></div> <!-- Spacer element -->
