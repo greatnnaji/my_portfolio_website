@@ -25,3 +25,6 @@ build/
 
 # Notes
 notes.txt
+
+# User-generated data
+reviews.json
