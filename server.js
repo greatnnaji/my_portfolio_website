@@ -22,10 +22,29 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 const REVIEWS_FILE = path.join(__dirname, 'reviews.json');
+// Admin password - can be set via environment variable
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'admin123';
+const ADMIN_TOKEN = 'your-secret-token-' + Date.now();
 
 // Initialize reviews file if it doesn't exist
 if (!fs.existsSync(REVIEWS_FILE)) {
     fs.writeFileSync(REVIEWS_FILE, JSON.stringify([]));
+}
+
+// Simple auth middleware
+function requireAuth(req, res, next) {
+    const authHeader = req.headers.authorization;
+    
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+        return res.status(401).json({ error: 'Unauthorized' });
+    }
+    
+    const token = authHeader.substring(7);
+    if (token !== ADMIN_TOKEN) {
+        return res.status(403).json({ error: 'Invalid token' });
+    }
+    
+    next();
 }
 
 // GET endpoint - Fetch all reviews
@@ -76,6 +95,42 @@ app.post('/api/reviews', (req, res) => {
     } catch (error) {
         console.error('Error saving review:', error);
         res.status(500).json({ error: 'Failed to save review' });
+    }
+});
+
+// Admin login endpoint
+app.post('/api/admin/login', (req, res) => {
+    const { password } = req.body;
+    
+    if (password === ADMIN_PASSWORD) {
+        res.json({ token: ADMIN_TOKEN, message: 'Login successful' });
+    } else {
+        res.status(401).json({ error: 'Invalid password' });
+    }
+});
+
+// DELETE endpoint - Delete a review (admin only)
+app.delete('/api/reviews/:id', requireAuth, (req, res) => {
+    try {
+        const { id } = req.params;
+        
+        // Read existing reviews
+        const reviews = JSON.parse(fs.readFileSync(REVIEWS_FILE, 'utf8'));
+        
+        // Filter out the review to delete
+        const filteredReviews = reviews.filter(review => review.id !== id);
+        
+        if (filteredReviews.length === reviews.length) {
+            return res.status(404).json({ error: 'Review not found' });
+        }
+        
+        // Save updated reviews
+        fs.writeFileSync(REVIEWS_FILE, JSON.stringify(filteredReviews, null, 2));
+        
+        res.json({ message: 'Review deleted successfully' });
+    } catch (error) {
+        console.error('Error deleting review:', error);
+        res.status(500).json({ error: 'Failed to delete review' });
     }
 });
     
