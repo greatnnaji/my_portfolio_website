@@ -94,7 +94,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         try {
-            const response = await fetch('/api/reviews', {
+            // Use Render API URL when deployed, local when testing
+            const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+                ? '' 
+                : 'https://your-app-name.onrender.com';
+            const response = await fetch(`${API_URL}/api/reviews`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -124,7 +128,11 @@ document.addEventListener('DOMContentLoaded', function() {
     async function loadReviews() {
         try {
             loadingSpinner.style.display = 'block';
-            const response = await fetch('/api/reviews');
+            // Use Render API URL when deployed, local when testing
+            const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+                ? '' 
+                : 'https://your-app-name.onrender.com';
+            const response = await fetch(`${API_URL}/api/reviews`);
             const reviews = await response.json();
 
             loadingSpinner.style.display = 'none';
