@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
     async function loadReviews() {
         try {
             loadingSpinner.style.display = 'block';
-            const response = await fetch('/api/reviews');
+            const response = await fetch('/api/reviews'); // GET request to fetch reviews
             const reviews = await response.json();
 
             loadingSpinner.style.display = 'none';

@@ -24,7 +24,7 @@ build/
 .vercel/
 
 # Notes
-notes.txt
+notes.md
 
 # User-generated data
 reviews.json

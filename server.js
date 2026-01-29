@@ -4,6 +4,7 @@ Basic express server with middleware, SQLite database, and Handlebars template r
 
 //Cntl+C to stop server
 
+require('dotenv').config();
 var express = require('express');
 var logger = require('morgan');
 var fs = require('fs');
@@ -15,7 +16,7 @@ const PORT = process.env.PORT || 3000
 app.locals.pretty = true; //to generate pretty view-source code in browser
 
 app.use(logger('dev'));
-app.use(express.static(__dirname));
+app.use(express.static(__dirname)); //serve static files from root folder. i.e index.html, css/, js/, images/ etc 
 // Middleware to parse URL-encoded form data
 app.use(express.urlencoded({ extended: true }));
 // Middleware to parse JSON data
@@ -100,7 +101,7 @@ app.post('/api/reviews', (req, res) => {
 
 // Admin login endpoint
 app.post('/api/admin/login', (req, res) => {
-    const { password } = req.body;
+    const { password } = req.body; // object destructuring, same as req.body.password
     
     if (password === ADMIN_PASSWORD) {
         res.json({ token: ADMIN_TOKEN, message: 'Login successful' });
