@@ -4,7 +4,6 @@ Basic express server with middleware, SQLite database, and Handlebars template r
 
 //Cntl+C to stop server
 
-require('dotenv').config();
 var express = require('express');
 var logger = require('morgan');
 var fs = require('fs');
