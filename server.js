@@ -17,7 +17,7 @@ app.locals.pretty = true; //to generate pretty view-source code in browser
 app.use(logger('dev'));
 app.use(express.static(__dirname)); //serve static files from root folder. i.e index.html, css/, js/, images/ etc 
 // Middleware to parse URL-encoded form data
-app.use(express.urlencoded({ extended: true }));
+//app.use(express.urlencoded({ extended: true })); // parses form data --> unused
 // Middleware to parse JSON data
 app.use(express.json());
 
