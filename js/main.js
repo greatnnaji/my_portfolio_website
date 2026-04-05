@@ -67,4 +67,36 @@
     
 })(jQuery);
 
+document.addEventListener('DOMContentLoaded', function() {
+    var themeKey = 'portfolio-theme';
+    var themeToggle = document.getElementById('themeToggle');
+
+    function getThemeLabel(theme) {
+        return theme === 'dark' ? { icon: 'fa-sun', text: 'Light', label: 'Switch to light mode' } : { icon: 'fa-moon', text: 'Dark', label: 'Switch to dark mode' };
+    }
+
+    function applyTheme(theme) {
+        var nextTheme = theme === 'dark' ? 'dark' : 'light';
+        document.documentElement.dataset.theme = nextTheme;
+        localStorage.setItem(themeKey, nextTheme);
+
+        if (!themeToggle) {
+            return;
+        }
+
+        var themeState = getThemeLabel(nextTheme);
+        themeToggle.innerHTML = '<i class="fas ' + themeState.icon + '"></i><span>' + themeState.text + '</span>';
+        themeToggle.setAttribute('aria-label', themeState.label);
+    }
+
+    applyTheme(document.documentElement.dataset.theme || 'light');
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function() {
+            var currentTheme = document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
+            applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
+        });
+    }
+});
+
 
