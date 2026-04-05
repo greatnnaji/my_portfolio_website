@@ -4,7 +4,7 @@ This is a personal developer portfolio website built using HTML, CSS, and JavaSc
 Features
 Responsive navigation bar with smooth scrolling to page sections
 
-Sections include Home, About, Portfolio, and Contact
+Sections include Home, About, Portfolio, Highlights, and Contact
 
 Uses Google Fonts
 
