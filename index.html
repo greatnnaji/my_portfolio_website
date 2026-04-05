@@ -2,16 +2,29 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>DevFolio - Developer Portfolio Template</title>
+        <title>Great Nnaji | Portfolio</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="Free Website Template" name="keywords">
-        <meta content="Free Website Template" name="description">
+        <meta content="Great Nnaji portfolio website" name="keywords">
+        <meta content="Portfolio for Great Nnaji, full-stack developer building LLM and ML-powered tools." name="description">
 
         <!-- Favicon -->
         <link href="img/favicon.ico" rel="icon">
 
         <!-- Google Font -->
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+        <script>
+            (function () {
+                var storageKey = 'portfolio-theme';
+                var theme = localStorage.getItem(storageKey);
+
+                if (theme !== 'light' && theme !== 'dark') {
+                    theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                }
+
+                document.documentElement.dataset.theme = theme;
+            })();
+        </script>
 
         <!-- CSS Libraries -->
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
@@ -37,6 +50,12 @@
                         <a href="#highlights" class="nav-item nav-link">Highlights</a>
                         <a href="#contact" class="nav-item nav-link">Contact</a>
                     </div>
+                    <div class="navbar-actions">
+                        <button type="button" id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                            <i class="fas fa-moon"></i>
+                            <span>Dark</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -52,7 +71,6 @@
                             <div class="hero-text">
                                 <p>I'm</p>
                                 <h1>Great Nnaji</h1>
-                                <!-- <h2></h2> -->
                                 <p class="hero-kicker">Full-Stack Developer • Building LLM applications and ML-powered tools</p>
                             </div>
                             <div class="hero-btn">
@@ -126,7 +144,7 @@
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-top">
-                        <span class="timeline-role">Data Engineer and Backend Developer</span>
+                        <span class="timeline-role">Data Engineer</span>
                         <span class="timeline-date">Feb 2026 – Present</span>
                         </div>
                         <div class="timeline-org">CU Inspace</div>
