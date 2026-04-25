@@ -710,6 +710,14 @@ html[data-theme="dark"] .navbar-toggler-icon {
   .about-snapshot { margin-top: 18px; }
 }
 
+@media (max-width: 575.98px) {
+  .timeline-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+}
+
 
 /*******************************/
 /******* Experience CSS ********/
