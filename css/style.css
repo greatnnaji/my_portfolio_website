@@ -677,6 +677,13 @@ html[data-theme="dark"] .navbar-toggler-icon {
   flex-wrap: wrap;
 }
 
+.timeline-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
 .timeline-role {
   font-weight: 700;
   color: var(--text);
@@ -686,6 +693,12 @@ html[data-theme="dark"] .navbar-toggler-icon {
   color: var(--muted);
   font-size: 14px;
   font-weight: 500;
+}
+
+.timeline-duration {
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 600;
 }
 
 .timeline-org {
@@ -715,6 +728,10 @@ html[data-theme="dark"] .navbar-toggler-icon {
     flex-direction: column;
     align-items: flex-start;
     gap: 2px;
+  }
+
+  .timeline-meta {
+    align-items: flex-start;
   }
 }
 
