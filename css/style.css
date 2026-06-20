@@ -682,10 +682,24 @@ html[data-theme="dark"] .navbar-toggler-icon {
   color: var(--text);
 }
 
+.timeline-meta {
+  text-align: right;
+}
+
 .timeline-date {
   color: var(--muted);
   font-size: 14px;
   font-weight: 500;
+}
+
+.timeline-duration {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 500;
+  opacity: 0.8;
+  letter-spacing: 0.02em;
 }
 
 .timeline-org {
